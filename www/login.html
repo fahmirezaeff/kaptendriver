@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>kaptendriver</title>
+
+	<!-- Mobile Specific Meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+
+	<!-- Optional theme -->
+	<!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css"> -->
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="custom.css">
+</head>
+<body>
+
+	<header>
+		<div class="jumbotron">
+			<div class="container">
+				
+			</div> <!-- end container -->
+		</div> <!-- end jumbotron -->
+
+		<div class="container">
+			<div class="row">
+				
+				<center><h2>Login Kapten</h2></center>
+			</div> <!-- end row -->
+
+			<hr>
+		</div> <!-- end container -->
+	</header>
+
+	<div id="loginPage" data-role="page">
+		<div class="container">
+			<div class="err" id="add_err"></div>
+			<form role="form" action="" method="post">
+				<div class="form-group">
+					<label for="form-elem-1" class="control-label">Username</label><div id="result"></div>
+					<input type="text" name="username" id="username" class="form-control"  placeholder="Username">
+				</div>
+				<div class="form-group">
+					<label for="form-elem-2" class="control-label">Password</label>
+					<input type="password" name="password" id="password" class="form-control"  placeholder="Password">
+				</div>
+			<!-- <div class="checkbox">
+					<label for=""><input type="checkbox"> Remember me</label>
+				</div>-->
+				<center><button type="submit" id="login" name="login" class="btn btn-primary">Sign in</button></center>
+			</form>
+
+
+		</div>
+	</div> <!-- end demo-area -->
+
+	<footer>
+		<div class="container">
+			<hr>
+
+			<p>
+				<center><small>Copyright by Imagidea</small></center>
+			</p>
+		</div> <!-- end container -->
+	</footer>
+
+
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>	
+	<script type="text/javascript">
+	$(document).ready(function(){
+	$("#add_err").css('display', 'none', 'important');
+	 $("#login").click(function(){	
+		  username=$("#username").val();
+		  password=$("#password").val();
+		  $.ajax({
+		   type: "POST",
+		   url: 'http://www.carirekan.com/halokapten/kapten/logproses.php',
+			data: "username="+username+"&password="+password,
+		   success: function(html){    
+			if(html=='true')    {
+			 //$("#add_err").html("right username or password");
+			 window.localStorage["username"] = username;
+             window.localStorage["password"] = password;
+			 window.location="main.html";
+			}
+			else    {
+			$("#add_err").css('display', 'inline', 'important');
+			 $("#add_err").html("<img src='img/tasks.png' />Wrong username or password");
+			}
+		   },
+		   beforeSend:function()
+		   {
+			$("#add_err").css('display', 'inline', 'important');
+			$("#add_err").html("<img src='' /> Loading...")
+		   }
+		  });
+		return false;
+	});
+});
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>halokapten</title>
+
+	<!-- Mobile Specific Meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css"> -->
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="custom.css">
+	<link rel="stylesheet" href="gaya.css" type="text/css">
+	<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	
+	<script type="text/javascript" charset="utf-8">
+		$(document).ready(function(){
+		$.ajax({
+		url: 'http://www.carirekan.com/halokapten/kapten/vieworder1.php',
+		dataType: 'jsonp',
+		jsonp: 'jsoncallback',
+		timeout: 5000,
+		success: function(data, status){
+			$.each(data, function(i,item){ 
+				$("#listcewek").append("<tr><td>"+item.nama_user+"</td><td><a href=# class=edit-record data-nm=a data-id="+item.idpes+" >Detail</a></td><td><button><a href= class=btn btn-danger>"+item.status+"</a></button></td></tr>");
+			});
+			$("#listcewek");
+		},
+			error: function(){
+		   	alert('Error terjadi');
+			}
+		});
+		});  
+        </script>  
+		<script type="text/javascript" charset="utf-8">
+		$(document).ready(function(){
+		$.ajax({
+		url: 'http://www.carirekan.com/halokapten/kapten/vieworder2.php',
+		dataType: 'jsonp',
+		jsonp: 'jsoncallback',
+		timeout: 5000,
+		success: function(data, status){
+			$.each(data, function(i,item){ 
+				$("#listceweka").append("<tr><td>"+item.nama_user+"</td><td><a href=# class=edit-record data-nm=b data-id="+item.idant+" >Detail</a></td><td><button><a href= class=btn btn-danger>"+item.status+"</a></button></td></tr>");
+			});
+			$("#listceweka");
+		},
+			error: function(){
+		   	alert('Error terjadi');
+			}
+		});
+		});  
+        </script>
+		<script type="text/javascript" charset="utf-8">
+		$(document).ready(function(){
+		$.ajax({
+		url: 'http://www.carirekan.com/halokapten/kapten/vieworder3.php',
+		dataType: 'jsonp',
+		jsonp: 'jsoncallback',
+		timeout: 5000,
+		success: function(data, status){
+			$.each(data, function(i,item){ 
+				$("#listceweku").append("<tr><td>"+item.nama_user+"</td><td><a href=# class=edit-record data-nm=c data-id="+item.idbel+" >Detail</a></td><td><button><a href= class=btn btn-danger>"+item.status+"</a></button></td></tr>");
+			});
+			$("#listceweku");
+		},
+			error: function(){
+		   	alert('Error terjadi');
+			}
+		});
+		});  
+        </script>
+</head>
+<body>
+
+	<header>
+		<div class="jumbotron">
+			<div class="container">
+			
+				
+			</div> <!-- end container -->
+		</div> <!-- end jumbotron -->
+
+		<div class="container">
+			<div class="row">
+				
+				<center><h2>Menu</h2> </center>
+			</div> <!-- end row -->
+
+			<hr>
+			<div class="container">
+			<div class="row">
+				<div class="col-sm-6 text-left">
+					<a href="">My Profile</a>
+				</div> <!-- end col-sm-6 -->
+				<div class="col-sm-6 text-right">
+						
+				</div> <!-- end col-sm-6 -->
+			</div> <!-- end row -->
+			<hr>
+		</div>
+		
+		</div> <!-- end container -->
+	</header>
+
+	<div class="demo-area">
+		<div class="container">
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Detail Pesanan</h4>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+			<div class="panel-group" id="accordion">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a href="#content-1" data-toggle="collapse" data-parent="#accordion">Halo Kapten Antar</a>
+						</h4>
+					</div>
+					<div class="panel-collapse collapse" id="content-1">
+						<div class="panel-body">
+							<p>
+							<table class="table">
+								<thead>
+								  <tr>
+									<th>Nama</th>
+									<th>Detail</th>
+									<th>Action</th>
+								  </tr>
+								</thead>
+								<tbody id="listcewek">
+								 
+									
+								  
+								</tbody>
+							  </table>						  
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a href="#content-2" data-toggle="collapse" data-parent="#accordion">Halo Kapten Antri</a>
+						</h4>
+					</div>
+					<div class="panel-collapse collapse" id="content-2">
+						<div class="panel-body">
+							<p>
+							<table class="table">
+								<thead>
+								  <tr>
+									<th>Nama</th>
+									<th>Detail</th>
+									<th>Action</th>
+								  </tr>
+								</thead>
+								<tbody id="listceweka">
+								
+								</tbody>
+							  </table>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a href="#content-3" data-toggle="collapse" data-parent="#accordion">Halo Kapten Belanja</a>
+						</h4>
+					</div>
+					<div class="panel-collapse collapse" id="content-3">
+						<div class="panel-body">
+							<p>      
+							  <table class="table">
+								<thead>
+								  <tr>
+									<th>Nama</th>
+									<th>Detail</th>
+									<th>Action</th>
+								  </tr>
+								</thead>
+								<tbody id="listceweku">
+								
+								</tbody>
+							  </table>
+							  
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> <!-- end demo-area -->
+
+	<footer>
+		<div class="container">
+			<hr>
+
+			<p>
+				<center><small>Copyright by Imagidea</small></center>
+			</p>
+		</div> <!-- end container -->
+	</footer>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>	
+	<script>
+        $(function(){
+            $(document).on('click','.edit-record',function(e){
+                e.preventDefault();
+                $("#myModal").modal('show');
+                $.post('http://www.carirekan.com/halokapten/kapten/detail.php',
+                    {id:$(this).attr('data-id'), nm:$(this).attr('data-nm')},
+                    function(html){
+                        $(".modal-body").html(html);
+                    }   
+                );
+            });
+        });
+    </script>
+
+</body>
+</html>
